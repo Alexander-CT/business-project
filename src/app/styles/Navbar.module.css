@@ -1,0 +1,52 @@
+.Navbar {
+    /* @apply absolute top-0 left-0 text-xl flex h-20 w-full items-center justify-center bg-gradient-to-t from-transparent via-transparent dark:to-black dark:via-slate-950; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    display: flex;
+    height: 48px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    z-index: 2000;
+    /* padding: 1rem; */
+
+
+    /* position: relative;
+    display: flex;
+    height: 48px;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
+
+    .list {
+
+        @apply list-none flex text-white dark:text-slate-500 md:p-0 gap-4 fixed z-10 p-5;
+
+        /* @apply line-clamp-1 hover:line-clamp-none list-inside absolute; */
+        .item {
+            .link {
+                @apply transition-all duration-500 ease-in-out delay-[50ms] hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-sky-500 hover:text-sky-500 py-4 px-2 cursor-pointer;
+            }
+
+            /* &.dropdown, */
+            &[data-dropdown='true'] {
+
+                /* @apply line-clamp-1 hover:line-clamp-none list-inside absolute; */
+                .list {
+                    @apply opacity-0 pointer-events-none transition-all duration-500 ease-in-out delay-100 flex flex-col gap-4 p-4 rounded bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-300 m-3;
+                    align-items: flex-start;
+                    /* display: none; */
+                }
+
+                &:hover .list {
+                    @apply flex flex-col gap-4 p-4 rounded bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-300 opacity-100 pointer-events-auto;
+                    /* @apply list-none flex text-white dark:text-slate-500 md:p-0 gap-4 fixed z-10; */
+                }
+            }
+        }
+    }
+}

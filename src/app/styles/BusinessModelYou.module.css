@@ -1,0 +1,248 @@
+.BusinessModelYou {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 100%;
+    height: 100%; */
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    padding-block: 6rem;
+
+    .table {
+        display: grid;
+        box-sizing: border-box;
+        font-family: 'Exo', sans-serif;
+        border-radius: 1rem;
+        gap: 2px;
+        box-shadow: 0 0 1.5rem 0.05rem hsl(192, 100%, 62%);
+
+        animation: border-flicker-table 2s linear;
+        /* outline: 2px solid rgb(62, 216, 255); */
+        /* margin-block: 3rem; */
+        width: 80%;
+        min-width: none;
+
+        min-height: 10%;
+        height: fit-content;
+        max-height: max-content;
+
+        font-size: 1.7cqmin;
+        grid-template-areas:
+            "a7 a7 a2 a2 a3 a3 a6 a6 a4 a4"
+            "a7 a7 a1 a1 a3 a3 a5 a5 a4 a4"
+            "a8 a8 a8 a8 a8 a9 a9 a9 a9 a9";
+
+        /*
+            "a7 a2 a3 a6 a4"
+            "a7 a1 a3 a5 a4"
+            "a8 a8 a? a9 a9";
+        */
+
+        /* grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(10, 1fr); */
+        /* aspect-ratio: 16 / 9; */
+
+        .model {
+            display: flex;
+            position: relative;
+            box-sizing: border-box;
+            flex-direction: column;
+            background-color: hsl(180, 55%, 10%);
+            /* color: hsl(0, 0%, 81%); */
+            color: hsl(180, 5%, 75%);
+            padding: clamp(1rem, 5cqmin, 5rem);
+            /* text-wrap: balance; */
+            gap: 1rem;
+            height: 100%;
+            width: 100%;
+            outline: 2px solid hsl(192, 100%, 62%);
+            box-shadow: inset 0 0 1.5rem .07rem hsl(192, 100%, 62%);
+            /* transition-timing-function: ease-in-out; */
+            animation: border-flicker 1s linear;
+            /* transition:
+                transform .5s ease-in-out,
+                box-shadow .5s ease-in-out; */
+
+            .copyButton {
+                display: flex;
+                position: absolute;
+                /* inset: 0; */
+                top: .5rem;
+                right: .5rem;
+                align-items: center;
+                justify-content: center;
+                width: fit-content;
+                height: fit-content;
+                /* border-radius: 50%; */
+                background-color: transparent;
+                /* margin: .5rem; */
+                color: transparent;
+                /* color: hsl(180, 5%, 75%); */
+                border: none;
+                outline: none;
+                padding: .5rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: hsl(180, 55%, 20%);
+                }
+
+                &:active {
+                    background-color: hsl(180, 55%, 15%);
+                }
+            }
+
+            .question,
+            .answer {
+                font-size: 2cqmin;
+            }
+
+            .question {
+                font-weight: 800;
+                margin-bottom: 0.5rem;
+                /* font-size: 1.2em; */
+            }
+
+            /* aspect-ratio: 1 / 1; */
+
+            &:hover {
+                background-color: hsl(180, 55%, 15%);
+                box-shadow: none;
+                /* transform: scale(1.02); */
+                z-index: 1000;
+
+                .copyButton {
+                    color: hsl(192, 100%, 62%);
+                }
+            }
+
+            .answer {
+                display: flexbox;
+                /* display: flex; */
+                /* flex-direction: column; */
+                gap: 1rem;
+                /* column-count: 2; */
+
+                .paragraph {
+                    text-wrap: balance;
+                }
+
+                .link,
+                p>.link {
+                    color: hsl(192, 100%, 62%);
+                    text-decoration: underline;
+
+                    &:link {
+                        color: hsl(192, 100%, 62%);
+                    }
+
+                    &:visited {
+                        color: hsl(221, 100%, 62%);
+                    }
+
+                    &:hover {
+                        color: hsl(192, 100%, 62%);
+                    }
+                }
+            }
+
+            /* width: 10rem; */
+
+            &:nth-of-type(1) {
+                grid-area: a1;
+            }
+
+            &:nth-of-type(2) {
+                grid-area: a2;
+            }
+
+            &:nth-of-type(3) {
+                grid-area: a3;
+            }
+
+            &:nth-of-type(4) {
+                grid-area: a4;
+                border-top-right-radius: inherit;
+            }
+
+            &:nth-of-type(5) {
+                grid-area: a5;
+            }
+
+            &:nth-of-type(6) {
+                grid-area: a6;
+            }
+
+            &:nth-of-type(7) {
+                grid-area: a7;
+                border-top-left-radius: inherit;
+            }
+
+            &:nth-of-type(8) {
+                grid-area: a8;
+                border-bottom-left-radius: inherit;
+            }
+
+            &:nth-of-type(9) {
+                grid-area: a9;
+                border-bottom-right-radius: inherit;
+            }
+        }
+    }
+
+    /* flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+
+}
+
+@keyframes border-flicker {
+
+    0%,
+    4% {
+        border-color: transparent;
+        box-shadow: inset 0 0 1.5rem .07rem hsla(192, 100%, 62%, 0.01);
+        /* opacity: 0.1; */
+
+    }
+
+    2%,
+    8%,
+    100% {
+        border-color: hsl(192, 100%, 62%);
+        box-shadow: inset 0 0 1.5rem .07rem hsl(192, 100%, 62%);
+        /* opacity: 1; */
+    }
+
+    70% {
+        border-color: transparent;
+        box-shadow: inset 0 0 1.5rem .07rem transparent;
+        /* opacity: 0.7; */
+    }
+}
+
+@keyframes border-flicker-table {
+
+    0%,
+    4% {
+        border-color: hsla(192, 100%, 62%, 0.1);
+        box-shadow: 0 0 1.5rem .07rem hsla(192, 100%, 62%, 0.1);
+        /* opacity: 0.1; */
+
+    }
+
+    2%,
+    8%,
+    100% {
+        border-color: hsl(192, 100%, 62%);
+        box-shadow: 0 0 1.5rem .07rem hsl(192, 100%, 62%);
+        /* opacity: 1; */
+    }
+
+    70% {
+        border-color: hsla(192, 100%, 62%, 0.7);
+        box-shadow: 0 0 1.5rem .07rem hsla(192, 100%, 62%, 0.7);
+        /* opacity: 0.7; */
+    }
+}
